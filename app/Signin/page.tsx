@@ -169,7 +169,7 @@ export default function AnimatedHeader() {
   }, [])
 
   return (
-    <div className="max-w-[360px] mx-auto overflow-hidden">
+    <div className="max-w-[450px] mx-auto overflow-hidden">
       <header className="relative h-[350px] w-full overflow-hidden">
         {slides.map((slide, index) => (
           <div 

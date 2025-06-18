@@ -19,7 +19,7 @@ export default function Home() {
     <AnimatePresence>
       <motion.div
         key="home-page"
-        className="bg-[#FE2C55] min-h-screen w-full max-w-[360px] mx-auto overflow-hidden relative"
+        className="bg-[#FE2C55] min-h-screen w-full max-w-[450px] mx-auto overflow-hidden relative"
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.8 }}
