@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion"
 import Image from 'next/image'
-import { div } from "framer-motion/client";
 
 export default function Home() {
   const router = useRouter();
@@ -17,34 +16,36 @@ export default function Home() {
   }, [router])
 
   return (
-    <div className="max-w-[360px]">
     <AnimatePresence>
       <motion.div
-        key="home-page"  // Added key prop
-        className="bg-[#FE2C55] h-screen"
+        key="home-page"
+        className="bg-[#FE2C55] min-h-screen w-full max-w-[360px] mx-auto overflow-hidden relative"
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="bg-[#FE2C55] h-screen relative ">  {/* Added relative for absolute positioning */}
+        {/* Background Image */}
+        <div className="absolute inset-0 w-full h-full">
           <Image 
             src={'/image 348.svg'} 
             alt="background" 
-            layout="fill" 
-            objectFit="cover"  // Corrected prop
-            priority  // Added if this is above-the-fold image
+            fill
+            style={{ objectFit: 'cover' }}
+            priority
           />
-          <div className="flex justify-center items-center h-screen relative z-10">  {/* Centered properly */}
-            <Image 
-              src={'/Frame 1000006975.svg'} 
-              width={192} 
-              height={35} 
-              alt="logo" 
-            />
-          </div>
+        </div>
+        
+        {/* Logo Container */}
+        <div className="relative z-10 flex justify-center items-center h-screen w-full">
+          <Image 
+            src={'/Frame 1000006975.svg'} 
+            width={192} 
+            height={35} 
+            alt="logo" 
+            priority
+          />
         </div>
       </motion.div>
     </AnimatePresence>
-    </div>
   )
 }
